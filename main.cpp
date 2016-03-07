@@ -179,9 +179,9 @@ void zz_Free(void *p){
 int main(){
     zz_block_Init();
     blockPrint();
-    int *a = (int *)zz_Malloc(39);
+    int *a = (int *)zz_Malloc(41);
     blockPrint();
-    char *b = (char *)zz_Malloc(100);
+    char *b = (char *)zz_Malloc(111);
     blockPrint();
     zz_Free(a);
     blockPrint();
