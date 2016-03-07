@@ -7,8 +7,8 @@
 //
 #include <iostream>
 
-#define MAX 2048	//内存的大小
-#define MIN 8		//对齐字节
+#define MAX 1024	//内存的大小
+#define MIN 4		//对齐字节
 
 using namespace std;
 
@@ -60,6 +60,10 @@ void zz_block_Split(zz_block *head, int num){
         myBlock->size = head->size - num;
         head->size = num;
         myBlock->next = head->next;
+        if(head->next!=NULL)
+        {
+            head->next->last = myBlock;
+        }
         head->next = myBlock;
         myBlock->last = head;
         head->used = true;
@@ -147,11 +151,12 @@ void zz_Free(void *p){
         if(freeHead->startAddr+freeHead->size == head->startAddr){
             cout<<"here!"<<endl;
             head = head->last;
+            cout<<head->size<<endl;
             head->size = head->size + head->next->size;
             head->next = head->next->next;
-            blockPrint();
+            //blockPrint();
             if(head->next != NULL)
-                head->next->next->last = head;
+                head->next->last = head;
         }
         else{
             head->nextFree = freeHead->nextFree;
