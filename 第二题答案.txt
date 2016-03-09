@@ -1,0 +1,8 @@
+Virtual Address 317a
+    --> pde index: 0xc pde contens:(valid 1, pfn 0x18)
+      --> pde index: 0xb pde contens:(valid 1, pfn 0x35)
+        Translates to Physical Address 0x6ba --> Value: 0x1e
+Virtual Address 4546
+    --> pde index: 0x11 pde contens:(valid 1, pfn 0x21)
+      --> pde index: 0xa pde contens:(valid 0, pfn 0x7f)
+        --> Fault (page directory entry not valid)
